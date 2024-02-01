@@ -3,7 +3,7 @@ package personnages;
 public abstract class Personnage {
 	
 	
-	private String nom;
+	public String nom;
 	private int force;
 	
 	protected Personnage(String nom, int force) {
