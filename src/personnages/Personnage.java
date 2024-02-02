@@ -4,7 +4,7 @@ public abstract class Personnage {
 	
 	
 	public String nom;
-	private int force;
+	protected int force;
 	
 	protected Personnage(String nom, int force) {
 		this.nom = nom;
@@ -13,26 +13,38 @@ public abstract class Personnage {
 	
 	
 	public void parler(String paroles) {
-		System.out.println("Le " + donnerAuteur() +" " + nom + " : " + paroles);
+		System.out.println("Le " + donnerAuteur() +" " + nom + " : " + "\""+paroles+"\"");
 	}
 	
 	public void frapper(Personnage victime) {
-		System.out.println("Le " + donnerAuteur() + " " + nom + " : Envois un grand coup dans la machoire du " + victime.donnerAuteur() + " " + victime.getNom());
-		victime.recevoirCoup(force / 3);
+		double coup = ((double)force)/3;
+		if(victime.estATerre()) {
+			
+		}
+		else if (this.estATerre()) {
+			this.parler("Je ne peux plus me battre...");
+		}
+		else if(!victime.estATerre() && !this.estATerre()) {
+			this.parler("envoie un grand coup dans la mâchoire de " + victime.getNom() + " avec une force de " + (int)Math.ceil(coup));
+			victime.recevoirCoup(force / 3);
+		}
 	}
 	
 	public void recevoirCoup(int force) {
 		
 	
 		this.force -= force;
-		if (this.force < 0) {
+		if (this.force <= 0) {
 			this.force = 0;
-			this.parler("J'abandonne, j'espere que la sauce sera bonne.");
+			this.parler("J'abandonne...");
 		} else {
-			this.parler("Aïe ! Il faut me resaisir sinon César me transformera en salade.");
+			this.parler("Aïe !");
 		}
 	}
 	
+	public boolean estATerre() {
+	    return this.force <= 0; // Le personnage est KO
+	}
 	
 	public String getNom() {
 		return nom;

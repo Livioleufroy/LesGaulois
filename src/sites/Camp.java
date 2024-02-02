@@ -31,7 +31,7 @@ public class Camp {
 	
 	public void afficherCamp() {
 		
-		System.out.println("Le camp dirigé par " + commandant.donnerAuteur() +" contient les soldats : " );
+		System.out.println("Le camp dirigé par le "+commandant.grade+" " + commandant.nom +" contient les soldats : " );
 		for(int i =0 ; i<nbSoldats ; i++) {
 			
 			System.out.println("- " +armeeRomaine[i].getNom());

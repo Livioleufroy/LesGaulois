@@ -1,5 +1,6 @@
 package test_fonctionnel;
 
+import personnages.Druide;
 import personnages.Gaulois;
 import personnages.Grade;
 import personnages.Soldat;
@@ -12,19 +13,20 @@ public class TestGaulois {
 		
 		
 		//Creation des habitants gaulois
-		Gaulois asterix = new Gaulois("Astérix", 8);
+		Gaulois asterix = new Gaulois("Astérix", 5);
 		Gaulois vercingetorix = new Gaulois("Vercingétorix",5);
-		Gaulois obelix = new Gaulois("Obelix", 15);
+		Gaulois obelix = new Gaulois("Obélix", 15);
 		Gaulois prolix = new Gaulois("Prolix", 2);
-		Gaulois agecanomix = new Gaulois("Agecanomix", 1);
+		Gaulois agecanonix = new Gaulois("Agecanonix", 1);
 		Gaulois assurancetourix = new Gaulois("Assurancetourix", 2);
 		Gaulois abraracourcix = new Gaulois("abraracourcix" , 5);
+		Druide panoramix = new Druide("Panoramix",1);
 		Village lutece = new Village(vercingetorix);
 		
 		//Creation du village gaulois
 		//Annonce de la création de Lutece
 		vercingetorix.parler("Je suis un grand guerrier et je vais créer mon village");
-		lutece.ajouterVillageois(agecanomix);
+		lutece.ajouterVillageois(agecanonix);
 		lutece.ajouterVillageois(assurancetourix);
 		lutece.ajouterVillageois(asterix);
 		lutece.ajouterVillageois(obelix);
@@ -32,7 +34,7 @@ public class TestGaulois {
 		
 		
 		//Creation de l'armée romaine
-		Soldat minus = new Soldat("Minus", 2, Grade.CENTURION);
+		Soldat minus = new Soldat("Minus", 6, Grade.CENTURION);
 		Soldat brutus = new Soldat("Brutus", 5, Grade.CENTURION); 
 		Soldat milexcus = new Soldat("Milexcus", 2, Grade.SOLDAT);
 		Soldat tulliusOctopus = new Soldat("Tullius Octopus", 2, Grade.TESSERARIUS);
@@ -63,8 +65,26 @@ public class TestGaulois {
 
 		campDeMinus.changerCommandant (briseradius);
 		campDeMinus.changerCommandant (chorus);
-
-
 		
+		
+		//Les Gauloi se préparent à l'assaut
+		
+		panoramix.fabriquerPotion(3);
+		panoramix.donnerPotion(asterix);
+		panoramix.donnerPotion(obelix);
+		panoramix.donnerPotion(assurancetourix);
+		panoramix.donnerPotion(abraracourcix);
+		panoramix.donnerPotion(agecanonix);
+		
+		
+		//Début de l'assaut
+		
+		minus.parler("UN GAU... UN GAUGAU...");
+		
+		//Asterix attaque
+		
+		for (int i = 0; i<3;i++) {
+		asterix.frapper(minus);
+		minus.frapper(asterix);}
 	}
 }
