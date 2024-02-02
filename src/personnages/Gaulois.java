@@ -20,11 +20,9 @@ public class Gaulois extends Personnage {
 
     @Override
     public void frapper(Personnage victime) {
-        int forceCoup = (int)(this.force * this.puissancePotion / 3);
-		if(victime.estATerre()) {
-			
-		}
-		else if (this.estATerre()) {
+        int forceCoup = (int)(this.force * this.puissancePotion);
+
+		if (this.estATerre()) {
 			this.parler("Je ne peux plus me battre...");
 		}
 		else if(!victime.estATerre() && !this.estATerre()) {
@@ -33,7 +31,8 @@ public class Gaulois extends Personnage {
         victime.recevoirCoup(forceCoup);
         this.puissancePotion = Math.max(1.0, this.puissancePotion - 0.5); // Diminue la puissance de la potion}
         
-    }}
+    }
+		}
 
     @Override
 	public String donnerAuteur() {

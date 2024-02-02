@@ -1,11 +1,9 @@
 package Equipements.Romains;
 
 public class Casque {
-    private final int defense;
+    public int defense=2;
 
-    public Casque(int defense) {
-        this.defense = defense;
-    }
+    
 
     public int getDefense() {
         return defense;

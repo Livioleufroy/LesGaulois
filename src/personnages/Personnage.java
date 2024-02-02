@@ -17,28 +17,21 @@ public abstract class Personnage {
 	}
 	
 	public void frapper(Personnage victime) {
-		double coup = ((double)force)/3;
-		if(victime.estATerre()) {
-			
-		}
-		else if (this.estATerre()) {
-			this.parler("Je ne peux plus me battre...");
-		}
-		else if(!victime.estATerre() && !this.estATerre()) {
-			this.parler("envoie un grand coup dans la mâchoire de " + victime.getNom() + " avec une force de " + (int)Math.ceil(coup));
+		if(!victime.estATerre() && !this.estATerre()) {
+			this.parler("envoie un grand coup dans la mâchoire de " + victime.getNom() + " avec une force de " + force);
 			victime.recevoirCoup(force / 3);
 		}
 	}
-	
 	public void recevoirCoup(int force) {
 		
-	
 		this.force -= force;
+		
 		if (this.force <= 0) {
 			this.force = 0;
 			this.parler("J'abandonne...");
 		} else {
 			this.parler("Aïe !");
+			
 		}
 	}
 	
