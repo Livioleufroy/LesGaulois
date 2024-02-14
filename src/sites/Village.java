@@ -18,27 +18,27 @@ public class Village {
 		if (nbVillageois < villageois.length) {	
 		villageois[nbVillageois] = nouveauVoisin;
 		nbVillageois++;
-		System.out.println("Le " + chef.donnerAuteur() + chef.nom + " : \" Bienvenue " + nouveauVoisin.nom + "! \" ");
+		System.out.println("Le " + chef.donnerAuteur() + chef.getNom() + " : \" Bienvenue " + nouveauVoisin.getNom() + "! \" ");
 		return true;
 		}
-		System.out.println("Le " + chef.donnerAuteur() + chef.nom + " : \" Désolé "+ nouveauVoisin.nom + " mon village est deja bien rempli.\""); 
+		System.out.println("Le " + chef.donnerAuteur() + chef.getNom() + " : \" Désolé "+ nouveauVoisin.getNom() + " mon village est deja bien rempli.\""); 
 		 
 		return false;
 	}
 	
 	public void afficherVillageois() {
-		System.out.println("Le village de " + chef.nom + " est habité par : "); 
+		System.out.println("Le village de " + chef.getNom() + " est habité par : "); 
 		for (int i=0 ; i<nbVillageois; i++) {
 			if (this.villageois[i] != null ) {
-				System.out.println("- " + villageois[i].nom); 
+				System.out.println("- " + villageois[i].getNom()); 
 			}
 		}
 		}
 	
 	
 	public void changerChef( Gaulois chef) {
-		System.out.println("Le " + this.chef.donnerAuteur() +" "+ this.chef.nom + " : \" Je laisse mon grand bouclier au grand " + chef.nom + "\"."); 
-		System.out.println("Le " + chef.donnerAuteur()+ " "+ chef.nom + " : \"Merci ! \""); 
+		System.out.println("Le " + this.chef.donnerAuteur() +" "+ this.chef.getNom() + " : \" Je laisse mon grand bouclier au grand " + chef.getNom() + "\"."); 
+		System.out.println("Le " + chef.donnerAuteur()+ " "+ chef.getNom() + " : \"Merci ! \""); 
 		this.chef = chef ; 
 	}
 	

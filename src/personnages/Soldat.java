@@ -19,7 +19,7 @@ public class Soldat extends Romain{
 		bouclier = new Bouclier();
 	}
 	
-	private int protection(int force) {
+	private double protection(double force) {
 		if(casque.defense >0) {
 			force-=2;
 			System.out.println("Le casque attenue les dégats de " + casque.defense);
@@ -48,7 +48,7 @@ public class Soldat extends Romain{
 	}
 	
 	@Override
-	public void recevoirCoup(int force) {
+	public void recevoirCoup(double force) {
 		force = protection(force);
 		this.force -= force;
 		if (this.force <= 0) {

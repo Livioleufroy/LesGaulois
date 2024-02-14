@@ -3,7 +3,7 @@ package personnages;
 public abstract class Personnage {
 	
 	
-	public String nom;
+	protected String nom;
 	protected int force;
 	
 	protected Personnage(String nom, int force) {
@@ -22,7 +22,7 @@ public abstract class Personnage {
 			victime.recevoirCoup(force / 3);
 		}
 	}
-	public void recevoirCoup(int force) {
+	public void recevoirCoup(double force) {
 		
 		this.force -= force;
 		

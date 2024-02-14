@@ -18,12 +18,12 @@ public class Camp {
 		
 		if (nbSoldats < armeeRomaine.length) {
 			armeeRomaine[nbSoldats] = recrue;
-			System.out.println("Le " + recrue.donnerAuteur() + recrue.nom + " : "
-					+ "\"Je mets mon epee au service de Rome dans le camp dirige par \" " + commandant.nom);
+			System.out.println("Le " + recrue.donnerAuteur() + recrue.getNom() + " : "
+					+ "\"Je mets mon epee au service de Rome dans le camp dirige par \" " + commandant.getNom());
 			nbSoldats++;
 			return true;
 		}
-		System.out.println("Le " + recrue.donnerAuteur() + commandant.nom + " : \" Désolé " + recrue.nom
+		System.out.println("Le " + recrue.donnerAuteur() + commandant.getNom() + " : \" Désolé " + recrue.getNom()
 				+ " notre camp est complet ! \"");
 		return false;
 	}
@@ -31,7 +31,7 @@ public class Camp {
 	
 	public void afficherCamp() {
 		
-		System.out.println("Le camp dirigé par le "+commandant.grade+" " + commandant.nom +" contient les soldats : " );
+		System.out.println("Le camp dirigé par le "+commandant.grade+" " + commandant.getNom() +" contient les soldats : " );
 		for(int i =0 ; i<nbSoldats ; i++) {
 			
 			System.out.println("- " +armeeRomaine[i].getNom());
@@ -42,10 +42,10 @@ public class Camp {
 	public void changerCommandant(Soldat commandant) {
 		if (commandant.grade != Grade.CENTURION) {
 			this.commandant = commandant;
-			System.out.println("Le " + commandant.donnerAuteur() +" "+ commandant.nom
+			System.out.println("Le " + commandant.donnerAuteur() +" "+ commandant.getNom()
 					+ " : \" Je ne suis pas suffisamment gradé pour prendre la direction du camp\r\n" + "romain. \".");
 		} else {
-			System.out.println("Le " + commandant.donnerAuteur() +" "+ commandant.nom + " \"Moi " + commandant.nom
+			System.out.println("Le " + commandant.donnerAuteur() +" "+ commandant.getNom() + " \"Moi " + commandant.getNom()
 					+ " je prends la direction du camp romain.\"");
 		}
 	}
