@@ -16,11 +16,11 @@ public class Camp {
 	
 	public boolean ajouterSoldat(Soldat recrue) {
 		
-		if (nbSoldats < armeeRomaine.length) {
-			armeeRomaine[nbSoldats] = recrue;
+		if (getNbSoldats() < getArmeeRomaine().length) {
+			getArmeeRomaine()[getNbSoldats()] = recrue;
 			System.out.println("Le " + recrue.donnerAuteur() + recrue.getNom() + " : "
 					+ "\"Je mets mon epee au service de Rome dans le camp dirige par \" " + commandant.getNom());
-			nbSoldats++;
+			nbSoldats = getNbSoldats() + 1;
 			return true;
 		}
 		System.out.println("Le " + recrue.donnerAuteur() + commandant.getNom() + " : \" Désolé " + recrue.getNom()
@@ -32,9 +32,9 @@ public class Camp {
 	public void afficherCamp() {
 		
 		System.out.println("Le camp dirigé par le "+commandant.grade+" " + commandant.getNom() +" contient les soldats : " );
-		for(int i =0 ; i<nbSoldats ; i++) {
+		for(int i =0 ; i<getNbSoldats() ; i++) {
 			
-			System.out.println("- " +armeeRomaine[i].getNom());
+			System.out.println("- " +getArmeeRomaine()[i].getNom());
 		}
 		
 	}
@@ -53,6 +53,14 @@ public class Camp {
 	
 	public Soldat getCommandant() {
 		return commandant;
+	}
+
+	public Soldat[] getArmeeRomaine() {
+		return armeeRomaine;
+	}
+
+	public int getNbSoldats() {
+		return nbSoldats;
 	}
 	
 }

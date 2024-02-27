@@ -15,8 +15,8 @@ public class Village {
 	
 	public boolean ajouterVillageois(Gaulois nouveauVoisin) {
 		
-		if (nbVillageois < villageois.length) {	
-		villageois[nbVillageois] = nouveauVoisin;
+		if (nbVillageois < getVillageois().length) {	
+		getVillageois()[nbVillageois] = nouveauVoisin;
 		nbVillageois++;
 		System.out.println("Le " + chef.donnerAuteur() + chef.getNom() + " : \" Bienvenue " + nouveauVoisin.getNom() + "! \" ");
 		return true;
@@ -29,8 +29,8 @@ public class Village {
 	public void afficherVillageois() {
 		System.out.println("Le village de " + chef.getNom() + " est habité par : "); 
 		for (int i=0 ; i<nbVillageois; i++) {
-			if (this.villageois[i] != null ) {
-				System.out.println("- " + villageois[i].getNom()); 
+			if (this.getVillageois()[i] != null ) {
+				System.out.println("- " + getVillageois()[i].getNom()); 
 			}
 		}
 		}
@@ -44,5 +44,9 @@ public class Village {
 	
 	public Gaulois getchef() {
 		return chef;
+	}
+
+	public Gaulois[] getVillageois() {
+		return villageois;
 	}
 }
