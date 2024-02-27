@@ -42,7 +42,7 @@ public class TestGaulois {
 		Soldat briseradius = new Soldat("Briseradius", 4, Grade.SOLDAT);
 		Soldat chorus = new Soldat("Chorus", 4, Grade.CENTURION);
 		Camp campDeMinus = new Camp(minus);
-		
+		minus.equiperArmure();
 		
 		//Creation d'un camp romain
 		//Annonce de la création d'un camp romain par minus

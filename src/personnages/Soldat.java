@@ -7,9 +7,9 @@ import Equipements.Romains.Plastron;
 public class Soldat extends Romain{
 	
 	public Grade grade; 
-	Casque casque = null;
-	Bouclier bouclier = null;
-	Plastron  plastron = null;
+	Casque casque;
+	Bouclier bouclier;
+	Plastron  plastron;
 	
 	public Soldat(String nom, int force, Grade grade) {
 		super(nom,force); 
@@ -46,29 +46,30 @@ public class Soldat extends Romain{
 	public void equiperArmure() {
         if (casque == null) {
             casque = new Casque();
-            System.out.println("Le soldat "+nom+"à déja un casque.");
+            System.out.println("Le soldat "+nom+" s'équipe d'un casque.");
             }
         else
             parler("J'ai déja un casque");
 
         if (plastron == null) {
             plastron = new Plastron();
-            System.out.println("Le soldat "+nom+"à déja un plastron.");
+            System.out.println("Le soldat "+nom+" s'équipe d'un plastron.");
         }
         else
-            parler("J'ai déja un plastron");
+            this.parler("J'ai déja un plastron");
         if (bouclier == null) {
             bouclier = new Bouclier();
-            System.out.println("Le soldat "+nom+"à déja un bouclier.");
+            System.out.println("Le soldat "+nom+" s'équipe d'un bouclier.");
         }
         else 
-            parler("J'ai déja un bouclier");
+            this.parler("J'ai déja un bouclier");
 
     }
 	
 	@Override
 	public void recevoirCoup(double force) {
-		force = protection(force);
+		if (casque != null && bouclier != null && plastron != null)
+			force = protection(force);
 		this.force -= force;
 		if (this.force <= 0) {
 			this.force = 0;
